@@ -28,7 +28,11 @@ class BigBenBot:
 
     def post_time(self, parent):
         """Post the current time as a reply to the parent comment."""
-        body = "The current time is {}.".format(self.get_time())
+        if parent.author in self.subreddit.moderator():
+            template = "The current time is {}, your grace."
+        else:
+            template = "The current time is {}."
+        body = template.format(self.get_time())
         parent.reply(body)
 
 

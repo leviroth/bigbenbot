@@ -95,3 +95,8 @@ class TestBigBenBot(IntegrationTest):
         comment = self.reddit.comment('dhb7g3w')
         with self.recorder.use_cassette('test_check_comment__removed'):
             assert not self.bot.check_comment(comment)
+
+    def test_post_time(self):
+        comment = self.reddit.comment('dhb7fxz')
+        with self.recorder.use_cassette('test_post_time'):
+            self.bot.post_time(comment)
