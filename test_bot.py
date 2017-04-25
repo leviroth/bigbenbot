@@ -1,6 +1,7 @@
 import betamax
 import json
 import praw
+import time
 from base64 import b64encode
 from betamax_serializers import pretty_json
 from urllib.parse import quote_plus
@@ -9,6 +10,9 @@ from bot import BigBenBot
 
 
 SUBREDDIT = 'BigBenBot'
+
+
+time.sleep = lambda _: None
 
 
 def b64_string(input_string):
